@@ -49,7 +49,11 @@ export default function App() {
   }, [user])
 
   const loadProfile = async () => {
-    const { data } = await sb.from('sv_profiles').select('*').eq('id', user.id).single()
+    let { data } = await sb.from("sv_profiles").select("*").eq("id", user.id).single()
+    if (!data) {
+      const res = await sb.from("sv_profiles").insert({ id: user.id, username: user.email.split("@")[0], coins: 150 }).select().single()
+      data = res.data
+    }
     setProfile(data)
     setLoading(false)
   }
@@ -87,7 +91,16 @@ export default function App() {
   const claimPack = async () => {
     const newOnes = packResult.filter(s => !ownedIds.has(s.id))
     if (newOnes.length > 0) {
-      await sb.from('sv_collection').upsert(newOnes.map(s => ({ user_id: user.id, sticker_id: s.id })))
+      const { error } = await sb.from('sv_collection')
+        .upsert(
+          newOnes.map(s => ({ user_id: user.id, sticker_id: s.id })),
+          { onConflict: 'user_id,sticker_id' }
+        )
+      if (error) {
+        console.error('claimPack error:', error)
+        showNotif('Error saving stickers: ' + error.message, 'error')
+        return
+      }
       await loadCollection()
     }
     showNotif(`+${packResult.length} stickers added!`)
