@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { sb } from './supabase'
 import { ALL_STICKERS, SERIES, RARITY, PACK_COST, rollPack } from './data'
 import { StickerCard } from './StickerCard'
+import { STICKER_ICONS } from './icons'
 import { PackReveal } from './PackReveal'
 import { AuthScreen } from './AuthScreen'
 import { TradeMarket } from './TradeMarket'
@@ -179,7 +180,7 @@ export default function App() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 6, marginBottom: 14, maxHeight: 140, overflowY: 'auto' }}>
               {ownedStickers.map(s => (
                 <div key={s.id} onClick={() => setTradeOffer(t => ({ ...t, offerSticker: s }))} style={{ background: tradeOffer.offerSticker?.id === s.id ? 'rgba(124,58,237,0.4)' : s.bg, borderRadius: 10, padding: '8px 4px', textAlign: 'center', cursor: 'pointer', border: `2px solid ${tradeOffer.offerSticker?.id === s.id ? '#7C3AED' : 'transparent'}` }}>
-                  <div style={{ fontSize: 22 }}>{s.emoji}</div>
+                  <div style={{ width:24, height:24, imageRendering:'pixelated' }} dangerouslySetInnerHTML={{ __html: STICKER_ICONS[s.id] || s.emoji }} />
                   <div style={{ fontSize: 8, color: '#E2E8F0', fontWeight: 700 }}>{s.name.split(' ')[0]}</div>
                 </div>
               ))}
@@ -188,7 +189,7 @@ export default function App() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 6, marginBottom: 16, maxHeight: 140, overflowY: 'auto' }}>
               {ALL_STICKERS.filter(s => !ownedIds.has(s.id)).map(s => (
                 <div key={s.id} onClick={() => setTradeOffer(t => ({ ...t, wantSticker: s }))} style={{ background: tradeOffer.wantSticker?.id === s.id ? 'rgba(245,158,11,0.4)' : s.bg, borderRadius: 10, padding: '8px 4px', textAlign: 'center', cursor: 'pointer', border: `2px solid ${tradeOffer.wantSticker?.id === s.id ? '#F59E0B' : 'transparent'}` }}>
-                  <div style={{ fontSize: 22 }}>{s.emoji}</div>
+                  <div style={{ width:24, height:24, imageRendering:'pixelated' }} dangerouslySetInnerHTML={{ __html: STICKER_ICONS[s.id] || s.emoji }} />
                   <div style={{ fontSize: 8, color: '#E2E8F0', fontWeight: 700 }}>{s.name.split(' ')[0]}</div>
                 </div>
               ))}
