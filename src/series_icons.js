@@ -1,7 +1,7 @@
 // Custom SVG series icons — each 64x64 viewBox, smooth paths
 
 export const SERIES_ICONS = {
-  cosmic: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  cosmic: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%">
     <defs>
       <radialGradient id="cg1" cx="50%" cy="50%" r="50%">
         <stop offset="0%" stop-color="#C084FC"/>
@@ -23,7 +23,7 @@ export const SERIES_ICONS = {
     <circle cx="38" cy="38" r="3" fill="rgba(255,255,255,0.08)"/>
   </svg>`,
 
-  dino: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  dino: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%">
     <defs>
       <linearGradient id="dg1" x1="0" y1="0" x2="1" y2="1">
         <stop offset="0%" stop-color="#4ADE80"/>
@@ -47,7 +47,7 @@ export const SERIES_ICONS = {
     <circle cx="38" cy="50" r="1.5" fill="rgba(0,0,0,0.12)"/>
   </svg>`,
 
-  robot: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  robot: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%">
     <defs>
       <linearGradient id="rg1" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color="#38BDF8"/>
@@ -77,7 +77,7 @@ export const SERIES_ICONS = {
     <circle cx="32" cy="52" r="4" fill="#FCD34D"/>
   </svg>`,
 
-  magic: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  magic: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%">
     <defs>
       <radialGradient id="mg1" cx="50%" cy="50%" r="50%">
         <stop offset="0%" stop-color="#FCA5A5"/>

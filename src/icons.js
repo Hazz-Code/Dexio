@@ -5,7 +5,7 @@ export const STICKER_ICONS = {
 
 // ── COSMIC CREW ──────────────────────────────────────────────────────────
 
-1: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+1: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Nebula Cat - purple space cat with star markings -->
   <!-- Ears -->
   <rect x="4" y="2" width="5" height="5" fill="#7C3AED"/>
@@ -57,7 +57,7 @@ export const STICKER_ICONS = {
   <rect x="19" y="29" width="5" height="2" fill="#7C3AED"/>
 </svg>`,
 
-2: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+2: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Star Pup - blue cosmic dog with constellation markings -->
   <!-- Floppy ears -->
   <rect x="2" y="5" width="6" height="10" fill="#4338CA"/>
@@ -108,7 +108,7 @@ export const STICKER_ICONS = {
   <rect x="28" y="17" width="2" height="2" fill="#BFDBFE"/>
 </svg>`,
 
-3: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+3: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Moon Bunny - white rabbit with crescent moon motif -->
   <!-- Tall ears -->
   <rect x="8" y="0" width="4" height="10" fill="#EEF2FF"/>
@@ -153,7 +153,7 @@ export const STICKER_ICONS = {
   <rect x="25" y="24" width="4" height="7" fill="#EEF2FF"/>
 </svg>`,
 
-4: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+4: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Galaxy Fox - dark purple fox with galaxy swirl body -->
   <!-- Ears -->
   <rect x="3" y="2" width="7" height="7" fill="#4C1D95"/>
@@ -201,7 +201,7 @@ export const STICKER_ICONS = {
   <rect x="20" y="29" width="4" height="2" fill="#6D28D9"/>
 </svg>`,
 
-5: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+5: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Comet Bird - iridescent space parrot -->
   <!-- Tail feathers - streaking -->
   <rect x="0" y="20" width="8" height="2" fill="#7C3AED"/>
@@ -242,7 +242,7 @@ export const STICKER_ICONS = {
   <rect x="15" y="30" width="5" height="1" fill="#312E81"/>
 </svg>`,
 
-6: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+6: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Void Fish - deep space anglerfish -->
   <!-- Tail fins -->
   <rect x="0" y="8" width="5" height="6" fill="#1E1B4B"/>
@@ -284,7 +284,7 @@ export const STICKER_ICONS = {
 
 // ── DINO GANG ─────────────────────────────────────────────────────────────
 
-7: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+7: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- T-Rex Tiny - chunky adorable t-rex -->
   <!-- Head -->
   <rect x="10" y="2" width="18" height="10" fill="#16A34A"/>
@@ -328,7 +328,7 @@ export const STICKER_ICONS = {
   <rect x="18" y="10" width="2" height="3" fill="#15803D"/>
 </svg>`,
 
-8: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+8: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Ptero Pete - flying pterodactyl -->
   <!-- Left wing -->
   <rect x="0" y="8" width="10" height="4" fill="#065F46"/>
@@ -367,7 +367,7 @@ export const STICKER_ICONS = {
   <rect x="16" y="29" width="6" height="2" fill="#15803D"/>
 </svg>`,
 
-9: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+9: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Stego Sam - stegosaurus with colorful plates -->
   <!-- Back plates alternating -->
   <rect x="6" y="0" width="3" height="7" fill="#15803D"/>
@@ -406,7 +406,7 @@ export const STICKER_ICONS = {
   <rect x="0" y="17" width="3" height="2" fill="#4ADE80"/>
 </svg>`,
 
-10: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+10: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Raptor Raj - sleek velociraptor with claw -->
   <!-- Tail -->
   <rect x="0" y="14" width="8" height="4" fill="#16A34A"/>
@@ -445,7 +445,7 @@ export const STICKER_ICONS = {
   <rect x="17" y="30" width="6" height="2" fill="#166534"/>
 </svg>`,
 
-11: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+11: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Bronto Bo - long-necked brontosaurus with leaf -->
   <!-- Tail -->
   <rect x="0" y="20" width="6" height="4" fill="#16A34A"/>
@@ -486,7 +486,7 @@ export const STICKER_ICONS = {
   <rect x="20" y="31" width="5" height="1" fill="#166534"/>
 </svg>`,
 
-12: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+12: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Anky Ana - ankylosaurus with club tail and golden spikes -->
   <!-- Club tail -->
   <rect x="0" y="16" width="6" height="8" fill="#15803D"/>
@@ -532,7 +532,7 @@ export const STICKER_ICONS = {
 
 // ── ROBO PALS ─────────────────────────────────────────────────────────────
 
-13: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+13: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Bolt Bot - electric yellow-accented robot -->
   <!-- Antenna -->
   <rect x="14" y="0" width="4" height="5" fill="#64748B"/>
@@ -582,7 +582,7 @@ export const STICKER_ICONS = {
   <rect x="19" y="29" width="4" height="3" fill="#075985"/>
 </svg>`,
 
-14: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+14: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Nano Ned - small friendly round robot -->
   <!-- Antenna -->
   <rect x="15" y="0" width="2" height="5" fill="#94A3B8"/>
@@ -627,7 +627,7 @@ export const STICKER_ICONS = {
   <rect x="18" y="28" width="4" height="4" fill="#0369A1"/>
 </svg>`,
 
-15: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+15: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Circuit Cee - robot covered in glowing circuit traces -->
   <!-- Head -->
   <rect x="5" y="3" width="22" height="13" fill="#075985"/>
@@ -683,7 +683,7 @@ export const STICKER_ICONS = {
   <rect x="19" y="28" width="5" height="4" fill="#0C4A6E"/>
 </svg>`,
 
-16: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+16: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Giga Gus - massive heavy-duty robot boss -->
   <!-- Head - boxy and armored -->
   <rect x="4" y="2" width="24" height="13" fill="#0C4A6E"/>
@@ -732,7 +732,7 @@ export const STICKER_ICONS = {
   <rect x="19" y="28" width="5" height="4" fill="#075985"/>
 </svg>`,
 
-17: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+17: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Pixel Pat - robot literally made of pixel squares -->
   <!-- Antenna with pixel ball -->
   <rect x="14" y="0" width="4" height="6" fill="#64748B"/>
@@ -780,7 +780,7 @@ export const STICKER_ICONS = {
   <rect x="18" y="29" width="5" height="3" fill="#0369A1"/>
 </svg>`,
 
-18: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+18: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Data Dan - robot with disk/storage head -->
   <!-- Disk head - circular platter look -->
   <rect x="4" y="2" width="24" height="2" fill="#64748B"/>
@@ -825,7 +825,7 @@ export const STICKER_ICONS = {
 
 // ── SPELL CRAFT ───────────────────────────────────────────────────────────
 
-19: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+19: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Fire Witch - dark witch with flame magic -->
   <!-- Hat brim -->
   <rect x="4" y="10" width="24" height="3" fill="#1C1917"/>
@@ -874,7 +874,7 @@ export const STICKER_ICONS = {
   <rect x="30" y="13" width="2" height="2" fill="#FCD34D"/>
 </svg>`,
 
-20: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+20: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Ice Drake - small ice dragon with frost breath -->
   <!-- Wings -->
   <rect x="0" y="8" width="8" height="10" fill="#1E3A8A"/>
@@ -931,7 +931,7 @@ export const STICKER_ICONS = {
   <rect x="17" y="30" width="7" height="2" fill="#93C5FD"/>
 </svg>`,
 
-21: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+21: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Storm Sprite - lightning fairy with electric hair -->
   <!-- Electric wings -->
   <rect x="0" y="8" width="10" height="8" fill="#BAE6FD"/>
@@ -983,7 +983,7 @@ export const STICKER_ICONS = {
   <rect x="26" y="20" width="2" height="2" fill="#FCD34D"/>
 </svg>`,
 
-22: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+22: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Potion Pup - dog holding magic green potion -->
   <!-- Floppy ears -->
   <rect x="2" y="6" width="6" height="10" fill="#7F1D1D"/>
@@ -1039,7 +1039,7 @@ export const STICKER_ICONS = {
   <rect x="19" y="28" width="5" height="4" fill="#7F1D1D"/>
 </svg>`,
 
-23: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+23: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Rune Bear - bear with glowing purple rune tattoos -->
   <!-- Ears -->
   <rect x="3" y="2" width="7" height="7" fill="#7F1D1D"/>
@@ -1093,7 +1093,7 @@ export const STICKER_ICONS = {
   <rect x="20" y="30" width="7" height="2" fill="#7F1D1D"/>
 </svg>`,
 
-24: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+24: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" width="100%" height="100%">
   <!-- Shadow Owl - dark magic owl with huge glowing eyes -->
   <!-- Spread wings -->
   <rect x="0" y="10" width="8" height="12" fill="#1C1917"/>
