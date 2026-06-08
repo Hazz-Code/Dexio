@@ -3,6 +3,7 @@ import { sb } from './supabase'
 import { ALL_STICKERS, SERIES, RARITY, PACK_COST, rollPack } from './data'
 import { StickerCard, PixelIcon } from './StickerCard'
 import { PackReveal } from './PackReveal'
+import { SERIES_ICONS } from './series_icons'
 import { AuthScreen } from './AuthScreen'
 import { Marketplace } from './Marketplace'
 import { STICKER_ICONS } from './icons'
@@ -288,52 +289,98 @@ export default function App() {
       )}
 
       {/* Sticker detail modal */}
-      {modal?.type === 'sticker' && (
-        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.88)', zIndex: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, backdropFilter: 'blur(8px)' }} onClick={() => setModal(null)}>
-          <div style={{ background: '#0D1220', borderRadius: 24, padding: 24, width: '100%', maxWidth: 320, border: '1px solid rgba(255,255,255,0.07)' }} onClick={e => e.stopPropagation()}>
-            <StickerCard sticker={modal.data} owned forTrade={tradeIds.has(modal.data.id)} />
-            
-            {/* Quantity badge */}
-            {(collectionMap[modal.data.id]?.quantity || 1) > 1 && (
-              <div style={{ background: 'rgba(124,58,237,0.15)', border: '1px solid rgba(124,58,237,0.3)', borderRadius: 10, padding: '8px 12px', margin: '12px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: 12, color: '#A78BFA', fontWeight: 600 }}>You own</span>
-                <span style={{ fontSize: 14, color: '#F0F4FF', fontWeight: 800 }}>×{collectionMap[modal.data.id]?.quantity || 1}</span>
-              </div>
-            )}
+      {modal?.type === 'sticker' && (() => {
+        const s = modal.data
+        const col = collectionMap[s.id]
+        const qty = col?.quantity || 1
+        const listed = tradeIds.has(s.id)
+        const marketPrice = getPriceHistory(s.id, s.rarity)[6]
+        const listPrice = col?.list_price || marketPrice
+        const r = RARITY[s.rarity]
+        return (
+          <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.88)', zIndex: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, backdropFilter: 'blur(8px)' }} onClick={() => setModal(null)}>
+            <div style={{ background: '#0D1220', borderRadius: 24, padding: 20, width: '100%', maxWidth: 320, border: '1px solid rgba(255,255,255,0.07)', maxHeight: '90vh', overflowY: 'auto' }} onClick={e => e.stopPropagation()}>
+              
+              <StickerCard sticker={s} owned forTrade={listed} />
 
-            {/* Price info */}
-            <div style={{ background: 'rgba(255,255,255,0.03)', borderRadius: 10, padding: '10px 12px', margin: '12px 0' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
-                <span style={{ fontSize: 11, color: '#475569' }}>Market price</span>
-                <span style={{ fontSize: 13, color: '#FCD34D', fontWeight: 700 }}>🪙 {getPriceHistory(modal.data.id, modal.data.rarity)[6]}</span>
-              </div>
-              {tradeIds.has(modal.data.id) && (
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 8 }}>
-                  <span style={{ fontSize: 11, color: '#475569' }}>Your list price</span>
-                  <PriceInput
-                    value={collectionMap[modal.data.id]?.list_price || getPriceHistory(modal.data.id, modal.data.rarity)[6]}
-                    onChange={v => updateListPrice(modal.data.id, v)}
-                  />
+              {/* Stats row */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8, margin: '14px 0' }}>
+                <div style={{ background: 'rgba(124,58,237,0.1)', border: '1px solid rgba(124,58,237,0.2)', borderRadius: 10, padding: '8px 0', textAlign: 'center' }}>
+                  <div style={{ fontSize: 16, fontWeight: 800, color: '#A78BFA' }}>×{qty}</div>
+                  <div style={{ fontSize: 9, color: '#475569', marginTop: 2, fontWeight: 600 }}>OWNED</div>
                 </div>
-              )}
-            </div>
+                <div style={{ background: 'rgba(252,211,77,0.08)', border: '1px solid rgba(252,211,77,0.15)', borderRadius: 10, padding: '8px 0', textAlign: 'center' }}>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: '#FCD34D' }}>🪙{marketPrice}</div>
+                  <div style={{ fontSize: 9, color: '#475569', marginTop: 2, fontWeight: 600 }}>MARKET</div>
+                </div>
+                <div style={{ background: `${r.color}15`, border: `1px solid ${r.color}33`, borderRadius: 10, padding: '8px 0', textAlign: 'center' }}>
+                  <div style={{ fontSize: 11, fontWeight: 700, color: r.color }}>{r.label}</div>
+                  <div style={{ fontSize: 9, color: '#475569', marginTop: 2, fontWeight: 600 }}>RARITY</div>
+                </div>
+              </div>
 
-            <div style={{ display: 'flex', gap: 8, marginTop: 4 }}>
-              <button onClick={() => { toggleTrade(modal.data.id); setModal(null) }} style={{
-                flex: 1,
-                background: tradeIds.has(modal.data.id) ? 'rgba(239,68,68,0.1)' : 'rgba(245,158,11,0.1)',
-                border: `1px solid ${tradeIds.has(modal.data.id) ? 'rgba(239,68,68,0.3)' : 'rgba(245,158,11,0.3)'}`,
-                borderRadius: 12, padding: '11px 0',
-                color: tradeIds.has(modal.data.id) ? '#EF4444' : '#F59E0B',
-                fontSize: 13, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit',
-              }}>
-                {tradeIds.has(modal.data.id) ? 'Delist' : 'List for Sale'}
-              </button>
-              <button onClick={() => setModal(null)} style={{ flex: 1, background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: '11px 0', color: '#64748B', fontSize: 13, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}>Close</button>
+              {/* Listing panel */}
+              <div style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${listed ? 'rgba(245,158,11,0.25)' : 'rgba(255,255,255,0.07)'}`, borderRadius: 14, padding: 14, marginBottom: 14 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: listed ? 12 : 0 }}>
+                  <div>
+                    <div style={{ fontSize: 12, color: listed ? '#F59E0B' : '#475569', fontWeight: 700 }}>
+                      {listed ? '🏷 Listed for Sale' : 'Not Listed'}
+                    </div>
+                    {!listed && <div style={{ fontSize: 10, color: '#334155', marginTop: 2 }}>List to appear in the marketplace</div>}
+                  </div>
+                  <button
+                    onClick={() => toggleTrade(s.id)}
+                    style={{
+                      background: listed ? 'rgba(239,68,68,0.1)' : 'rgba(245,158,11,0.1)',
+                      border: `1px solid ${listed ? 'rgba(239,68,68,0.3)' : 'rgba(245,158,11,0.25)'}`,
+                      borderRadius: 10, padding: '6px 12px',
+                      color: listed ? '#EF4444' : '#F59E0B',
+                      fontSize: 11, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit',
+                    }}
+                  >
+                    {listed ? 'Delist' : 'List'}
+                  </button>
+                </div>
+
+                {/* Price editor — always show when listed */}
+                {listed && (
+                  <div>
+                    <div style={{ fontSize: 10, color: '#475569', fontWeight: 600, marginBottom: 8, letterSpacing: 0.5 }}>SET YOUR PRICE</div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <div style={{ flex: 1, background: 'rgba(252,211,77,0.08)', border: '1px solid rgba(252,211,77,0.2)', borderRadius: 10, padding: '8px 12px', display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <span style={{ fontSize: 14, color: '#FCD34D' }}>🪙</span>
+                        <input
+                          type="number"
+                          defaultValue={listPrice}
+                          min={1}
+                          step={1}
+                          onBlur={e => updateListPrice(s.id, Math.max(1, parseInt(e.target.value) || 1))}
+                          onKeyDown={e => { if (e.key === 'Enter') { updateListPrice(s.id, Math.max(1, parseInt(e.target.value) || 1)); e.target.blur() } }}
+                          style={{ flex: 1, background: 'none', border: 'none', color: '#F0F4FF', fontSize: 16, fontWeight: 700, outline: 'none', fontFamily: 'inherit', width: '100%' }}
+                        />
+                      </div>
+                      <button
+                        onClick={() => updateListPrice(s.id, marketPrice)}
+                        style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, padding: '8px 10px', color: '#64748B', fontSize: 10, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', whiteSpace: 'nowrap' }}
+                      >
+                        Use market
+                      </button>
+                    </div>
+                    <div style={{ marginTop: 8, display: 'flex', justifyContent: 'space-between' }}>
+                      <span style={{ fontSize: 10, color: '#475569' }}>Market: 🪙{marketPrice}</span>
+                      <span style={{ fontSize: 10, color: listPrice <= marketPrice ? '#4ADE80' : '#F87171', fontWeight: 600 }}>
+                        {listPrice <= marketPrice ? '✓ At or below market' : `+${listPrice - marketPrice} above market`}
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <button onClick={() => setModal(null)} style={{ width: '100%', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 12, padding: '11px 0', color: '#64748B', fontSize: 13, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit' }}>Close</button>
             </div>
           </div>
-        </div>
-      )}
+        )
+      })()}
 
       {/* ── HEADER ── */}
       <div style={{ padding: '20px 20px 16px', position: 'relative', zIndex: 10 }}>
@@ -386,7 +433,7 @@ export default function App() {
                 const owned = ALL_STICKERS.filter(s => s.series === ser.id && ownedIds.has(s.id)).length
                 return (
                   <div key={ser.id} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 18, padding: '14px 14px 12px' }}>
-                    <div style={{ fontSize: 24, marginBottom: 8 }}>{ser.emoji}</div>
+                    <div style={{ width: 40, height: 40, marginBottom: 8 }} dangerouslySetInnerHTML={{ __html: SERIES_ICONS[ser.id] }} />
                     <div style={{ fontSize: 13, color: '#E2E8F0', fontWeight: 700, marginBottom: 2 }}>{ser.name}</div>
                     <div style={{ fontSize: 11, color: '#475569', marginBottom: 8 }}>{owned}/{total} collected</div>
                     <div style={{ background: 'rgba(255,255,255,0.06)', borderRadius: 6, height: 4, overflow: 'hidden' }}>
